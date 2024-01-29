@@ -1,0 +1,51 @@
+<template>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+	<require from="./app.css"></require>
+
+	<div class="main-container">
+		<div class="error-container ${errorFade ? 'show-error' : ''}">
+			<video show.bind="videoNum == 1" id="errorVideo1">
+				<source src="videos/side-eye.mp4" type="video/mp4">
+			</video>
+			<video show.bind="videoNum == 2" id="errorVideo2">
+				<source src="videos/huh.mp4" type="video/mp4">
+			</video>
+			<video show.bind="videoNum == 3" id="errorVideo3">
+				<source src="videos/sad-cat.mp4" type="video/mp4">
+			</video>
+			<video show.bind="videoNum == 4" id="errorVideo4">
+				<source src="videos/banana-cat.mp4" type="video/mp4">
+			</video>
+			<video show.bind="videoNum == 5" id="errorVideo5">
+				<source src="videos/mreow.mp4" type="video/mp4">
+			</video>
+			<video show.bind="videoNum == 6" id="errorVideo6">
+				<source src="videos/black-cat.mp4" type="video/mp4">
+			</video>
+		</div>
+		<div if.bind="!answered" class="question-container">
+			<!-- <img src="images/cute.jpg" /> -->
+			<div class="heading">
+				Will you be my valentine?
+			</div>
+			<div class="buttons">
+				<button click.delegate="no()">
+					No
+				</button>
+				<button click.delegate="yes()">
+					Yes
+				</button>
+			</div>
+		</div>
+		<div show.bind="answered" class="success-container">
+			<img src="images/hearts.gif" />
+			<video id="successVideo" loop>
+				<source src="videos/happy.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+</template>

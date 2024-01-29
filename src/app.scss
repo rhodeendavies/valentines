@@ -1,0 +1,120 @@
+@use "./reset.scss";
+
+$lightPink: #fde8e7;
+$mediumPink: #f2d6d5;
+$darkPink: #fa9a9c;
+$darkerPink: #d6797a;
+$white: #faf6f3;
+$boxShadow: 0 0.6rem $darkerPink;
+$boxShadowHover: 0 0.3rem $darkerPink;
+$boxShadowClicked: 0 0 $darkerPink;
+$titanOne: "Titan One", sans-serif;
+
+html {
+	font-size: 62.5%;
+}
+
+body,
+input,
+textarea,
+button {
+	font-size: 1.4rem;
+	color: $darkPink;
+	font-family: $titanOne;
+	font: normal 400 1.4rem $titanOne;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.main-container {
+	display: grid;
+	grid-template-rows: 100vh;
+	position: relative;
+	background-color: $lightPink;
+	background: linear-gradient(0deg, $lightPink 0%, $darkerPink 100%);
+
+	.error-container {
+		position: absolute;
+		align-self: center;
+		transition: opacity 0.7s;
+		opacity: 0;
+		z-index: 0;
+
+		&.show-error {
+			z-index: 10;
+			opacity: 1;
+		}
+
+		video {
+			max-width: 100%;
+		}
+	}
+
+	.success-container {
+		position: absolute;
+		align-self: center;
+		z-index: 100;
+		opacity: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			position: absolute;
+			z-index: 101;
+			height: 100vh;
+		}
+
+		video {
+			max-width: 100%;
+		}
+	}
+
+	.question-container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+
+		.heading {
+			font-size: 4rem;
+			margin-bottom: 2rem;
+			text-align: center;
+			-webkit-text-stroke: 0.2rem $white;
+			text-shadow: 0 0.4rem $darkerPink;
+		}
+
+		.buttons {
+			display: flex;
+			gap: 2rem;
+
+			button {
+				background-color: $darkPink;
+				height: 8rem;
+				width: 8rem;
+				border-radius: 100%;
+				box-shadow: $boxShadow;
+				border: 0.5rem solid $white;
+				color: $white;
+				font-size: 2.4rem;
+				position: relative;
+				transition: all 0.2s;
+				cursor: pointer;
+				top: 0;
+
+				&:hover {
+					top: 0.2rem;
+					box-shadow: $boxShadowHover;
+				}
+
+				&:active {
+					top: 0.2rem;
+					box-shadow: $boxShadowClicked;
+				}
+			}
+		}
+	}
+}
